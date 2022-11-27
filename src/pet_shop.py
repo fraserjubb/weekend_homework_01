@@ -22,14 +22,8 @@ def increase_pets_sold(pet_shop, new_pets_sold):
     return new_pets_sold
 
 
-# def get_stock_count(count):
-#     count = ["pets"].index(1)
-#     return count
-    # for pet_number in pet_shop:
-    #     if len(["pets"]) == count:
-    #         return pet_number
-    # stock_count += pet_number
-    # return stock_count
+def get_stock_count(pet_shop):
+    return len(pet_shop["pets"])
 
 
 def get_pets_by_breed(pet_shop, breed_given):
@@ -46,6 +40,40 @@ def find_pet_by_name(pet_shop, name):
             return name_of_pet
     
 
+def remove_pet_by_name(pet_shop, name):
+    pet_to_remove = find_pet_by_name(pet_shop, name)
+    pet_shop["pets"].remove(pet_to_remove)
 
 
+def add_pet_to_stock(pet_shop, new_pet):
+    pet_shop["pets"].append(new_pet)
 
+
+def get_customer_cash(customer):
+    return customer["cash"]
+
+
+def remove_customer_cash(customer, total_spent):
+    customer["cash"] = get_customer_cash(customer) - total_spent
+    return customer["cash"]
+
+
+def get_customer_pet_count(pets):
+    return len(pets["pets"])
+
+
+def add_pet_to_customer(customer, new_pet):
+    customer["pets"].append(new_pet)
+
+    # --- OPTIONAL ---
+
+# def customer_can_afford_pet(customer, new_pet):
+#     True = "can_buy_pet"
+#     if customer["cash"] >= new_pet["price"]:
+#         return "can_buy_pet"
+
+
+#     # def test_customer_can_afford_pet__sufficient_funds(self):
+#     #     customer = self.customers[0]
+#     #     can_buy_pet = customer_can_afford_pet(customer, self.new_pet)
+#     #     self.assertEqual(True, can_buy_pet)
